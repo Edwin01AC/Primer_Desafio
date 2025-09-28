@@ -13,8 +13,8 @@ bool encontrarParametrosYMetodo(char* encriptado, int longitudEncriptada, const 
                                 int& rotacionEncontrada, unsigned char& claveEncontrada, int &metodoEncontrado);
 
 int main() {
-    const char* archivoEncriptado = "Encriptado4.txt";
-    const char* archivoPista = "pista4.txt";
+    const char* archivoEncriptado = "Encriptado3.txt";
+    const char* archivoPista = "pista3.txt";
 
     int longitudEncriptada = 0;
     char* encriptado = leerArchivo(archivoEncriptado, longitudEncriptada);
@@ -37,7 +37,11 @@ int main() {
                                    rotacionEncontrada, claveEncontrada, metodoEncontrado)) {
 
         cout << "¡Parametros encontrados!" << endl;
-        cout << "Metodo de compresion: " << metodoEncontrado << endl;
+        if (metodoEncontrado == 1) {
+            cout << "Metodo de compresion: RLE" << endl;
+        } else {
+            cout << "Metodo de compresion: LZ78" << endl;
+        }
         cout << "Rotacion (n): " << rotacionEncontrada << endl;
         cout << "Clave XOR (K): " << (int)claveEncontrada << endl;
 
